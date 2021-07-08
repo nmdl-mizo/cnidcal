@@ -1,0 +1,7 @@
+README.md
+setup.py
+cnidcal.egg-info/PKG-INFO
+cnidcal.egg-info/SOURCES.txt
+cnidcal.egg-info/dependency_links.txt
+cnidcal.egg-info/requires.txt
+cnidcal.egg-info/top_level.txt
