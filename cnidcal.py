@@ -329,7 +329,7 @@ def searchcnid(B1, B2, lim):
     B -- two column vectors of CNID
     """
     # normal vector
-    v_n = cross(B1[:, 0], B1[:, 1])
+    v_n = cross(B1[:, 0], B1[:, 1]) / norm(B1[:, 0])
     RP1 = np.column_stack((v_n, B1))
     RP2 = np.column_stack((v_n, B2))
 
