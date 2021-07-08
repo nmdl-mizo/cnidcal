@@ -90,13 +90,13 @@ class cellsdrawer:
         #Rotate to face the screen
         normal = cross(self.PB_1[:,0],self.PB_1[:,1])
         R_to_screen = get_R_to_screen(np.column_stack((normal, self.PB_1)))
-        PB_1_screen = dot(R_to_screen, self.PB_1)
-        PB_2_screen = dot(R_to_screen, self.PB_2)
-        CNID_screen = dot(R_to_screen, self.CNID)
-        CSL_screen = dot(R_to_screen, self.CSL)
-        LP1 = get_lattice_points(PB_1_screen,lim)
-        LP2 = get_lattice_points(PB_2_screen,lim)
-        LPCNID = get_lattice_points(CNID_screen, lim)
+        self.PB_1_screen = dot(R_to_screen, self.PB_1)
+        self.PB_2_screen = dot(R_to_screen, self.PB_2)
+        self.CNID_screen = dot(R_to_screen, self.CNID)
+        self.CSL_screen = dot(R_to_screen, self.CSL)
+        LP1 = get_lattice_points(self.PB_1_screen,lim)
+        LP2 = get_lattice_points(self.PB_2_screen,lim)
+        LPCNID = get_lattice_points(self.CNID_screen, lim)
         #Draw
         plt.figure(figsize = (figsize_x,figsize_y))
         plt.scatter(LP1[:,0], LP1[:,1], s = size_LP_1, alpha = 0.3, c = 'b', label = 'Lattice 1')
@@ -104,16 +104,16 @@ class cellsdrawer:
         if show_CNID_points == True:
             plt.scatter(LPCNID[:,0], LPCNID[:,1], s = 30, alpha = 0.5, c = 'g', label = 'CNID')
         if show_lattice_1 == True:
-            xs, ys = Xs_Ys_cell(PB_1_screen)
+            xs, ys = Xs_Ys_cell(self.PB_1_screen)
             plt.plot(xs, ys, c = 'b', linewidth = 3)
         if show_lattice_2 == True:
-            xs, ys = Xs_Ys_cell(PB_2_screen)
+            xs, ys = Xs_Ys_cell(self.PB_2_screen)
             plt.plot(xs, ys, c = 'orange', linewidth = 3)
         if show_CSL == True:
-            xs, ys = Xs_Ys_cell(CSL_screen)
+            xs, ys = Xs_Ys_cell(self.CSL_screen)
             plt.plot(xs, ys, c = 'k', linewidth = 1)
         if show_CNID_cell == True:
-            xs, ys = Xs_Ys_cell(CNID_screen)
+            xs, ys = Xs_Ys_cell(self.CNID_screen)
             plt.plot(xs, ys, c = 'g')
         plt.axis('scaled')
         plt.xlim(xlow,xhigh)
@@ -135,25 +135,25 @@ class cellsdrawer:
         #Rotate to face the screen
         normal = cross(self.PB_1[:,0], self.PB_1[:,1])
         R_to_screen = get_R_to_screen(np.column_stack((normal, self.PB_1)))
-        PB_R_1_screen = dot(R_to_screen, self.PB_1_R)
-        PB_R_2_screen = dot(R_to_screen, self.PB_2_R)
-        CSL_R_screen = dot(R_to_screen, self.CSL_R)
-        LP1_R = get_lattice_points(PB_R_1_screen, 50)
-        LP2_R = get_lattice_points(PB_R_2_screen, 50)
-        LPCSL_R = get_lattice_points(CSL_R_screen, 50)
+        self.PB_R_1_screen = dot(R_to_screen, self.PB_1_R)
+        self.PB_R_2_screen = dot(R_to_screen, self.PB_2_R)
+        self.CSL_R_screen = dot(R_to_screen, self.CSL_R)
+        LP1_R = get_lattice_points(self.PB_R_1_screen, 50)
+        LP2_R = get_lattice_points(self.PB_R_2_screen, 50)
+        LPCSL_R = get_lattice_points(self.CSL_R_screen, 50)
         
         #Draw
         plt.figure(figsize = (figsize_x,figsize_y))
         plt.scatter(LP1_R[:,0], LP1_R[:,1], s = size_LP_1_R, alpha = 0.3, c = 'b', label = 'Reciprocal Lattice 1', marker = 'h')
         plt.scatter(LP2_R[:,0], LP2_R[:,1], s = size_LP_2_R, alpha = 0.7, c = 'orange', label = 'Reciprocal Lattice 2', marker = 'h')
         if show_lattice_1_R == True:
-            xs, ys = Xs_Ys_cell(PB_R_1_screen)
+            xs, ys = Xs_Ys_cell(self.PB_R_1_screen)
             plt.plot(xs, ys, c = 'b', linewidth = 3)
         if show_lattice_1_R == True:
-            xs, ys = Xs_Ys_cell(PB_R_2_screen)
+            xs, ys = Xs_Ys_cell(self.PB_R_2_screen)
             plt.plot(xs, ys, c = 'orange', linewidth = 3)
         if show_CSL_R == True:
-            xs, ys = Xs_Ys_cell(CSL_R_screen)
+            xs, ys = Xs_Ys_cell(self.CSL_R_screen)
             plt.plot(xs, ys, c = 'k', linewidth = 1)
         plt.axis('scaled')
         plt.xlim(xlow,xhigh)
