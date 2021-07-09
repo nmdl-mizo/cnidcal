@@ -3,3 +3,4 @@ dist/
 cnidcal.egg-info/
 __pycache__/
 *.swp
+*.jpg
