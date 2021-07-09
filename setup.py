@@ -6,5 +6,5 @@ setup(
     license="MIT",
     author="Yaoshu Xie",
     author_email="ysxie@iis.u-tokyo.ac.jp",
-    install_requires=["numpy"],
+    install_requires=["numpy", "matplotlib"],
 )
