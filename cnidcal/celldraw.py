@@ -82,7 +82,7 @@ class cellsdrawer:
         
     def draw_direct(self, xlow, xhigh, ylow, yhigh, figsize_x, figsize_y, show_CSL = True, \
     show_CNID_points = False, show_CNID_cell = False, show_lattice_1 = True, show_lattice_2 = True, size_LP_1 = 150, \
-    size_LP_2 = 50, save = False, dpi = 600, show_axis = False, lim = 50, show_legend = False):
+    size_LP_2 = 50, save = False, dpi = 600, show_axis = False, lim = 50, show_legend = False, filename = 'Figure'):
         """
         A function drawing the direct lattices
         """
@@ -121,13 +121,13 @@ class cellsdrawer:
         if show_axis == False:
             plt.axis('off')
         if save == True:
-            plt.savefig('direct_cells.jpg',dpi = 600, format = 'jpg')
+            plt.savefig(filename, dpi = 600, format = 'jpg')
         if show_legend == True:
         	  plt.legend()
     
     def draw_reciprocal(self, xlow, xhigh, ylow, yhigh, figsize_x, figsize_y, show_CSL_R = True, \
     show_lattice_1_R = True, show_lattice_2_R = True, size_LP_1_R = 150, \
-    size_LP_2_R = 50, save = False, dpi = 600, show_axis = False, lim = 50, show_legend = False):
+    size_LP_2_R = 50, save = False, dpi = 600, show_axis = False, lim = 50, show_legend = False, filename = 'Figure'):
         """
         A function drawing the direct lattices
         """
@@ -161,6 +161,6 @@ class cellsdrawer:
         if show_axis == False:
             plt.axis('off')
         if save == True:
-            plt.savefig('reciprocal_cells.jpg',dpi = 600, format = 'jpg')
+            plt.savefig(filename, dpi = 600, format = 'jpg')
         if show_legend == True:
         	  plt.legend()        
